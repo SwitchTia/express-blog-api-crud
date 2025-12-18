@@ -14,27 +14,8 @@ router.get("/", cityController.index)
 router.get("/:id", cityController.show)
 
 
-
 // STORE
-router.post("/", (req, res) => {
-
-  const newCity = req.body;
-
-
-  //creating a new blog object:
-  const newCityBlogToAdd = {
-    id: newId,
-    title: newCity.title,
-    content: newCity.content,
-    // image: newCity.image,?
-    tags: newCity.tags
-  }
-
-  cityBlogArray.push(cityToAdd);
-
-  res.json(newCityBlogToAdd);
-
-});
+router.post("/", cityController.store);
 
 
 

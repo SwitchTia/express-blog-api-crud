@@ -12,6 +12,7 @@ function index(req, res) {
     res.json(response)
 };
 
+
 //SHOW
 function show(req, res) {
     const id = parseInt(req.params.id);
@@ -22,11 +23,31 @@ function show(req, res) {
 }
 
 
+//STORE
+function store (req, res){
+   const newCity = req.body;
+
+
+  //creating a new blog object:
+  const newCityBlogToAdd = {
+    id: newId,
+    title: newCity.title,
+    content: newCity.content,
+    // image: newCity.image,?
+    tags: newCity.tags
+  }
+
+  cityBlogArray.push(cityToAdd);
+
+  res.json(newCityBlogToAdd);
+}
+
+
 
 const cityController = {
     index,
-    // show,
-    // store,
+    show,
+    store,
     // update,
     // modify,
     // destroy
