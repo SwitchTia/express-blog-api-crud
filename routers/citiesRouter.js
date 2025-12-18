@@ -6,31 +6,12 @@ const router = express.Router();
 
 
 
-INDEX
+//INDEX
 router.get("/", cityController.index)
-  //(req, res) => {
-//   const response = {
-
-//     totalCitiesToVisit: cityBlogArray.length,
-
-//     listOfCities: cityBlogArray,
-//   }
-//   res.json(response)
-// }
-
-
 
 
 //SHOW
-router.get("/:id", (req, res) => {
-
-  const id = parseInt(req.params.id);
-
-
-  const resp = cityBlogArray.find(city => city.id === id);
-
-  res.json(resp)
-})
+router.get("/:id", cityController.show)
 
 
 
