@@ -1,14 +1,13 @@
 import express from "express";
 import { cityBlogArray } from "../data.js";
-
-
+import cityController from "../controllers/cityController.js";
 
 const router = express.Router();
 
 
 
 INDEX
-router.get("/", )
+router.get("/", cityController.index)
   //(req, res) => {
 //   const response = {
 

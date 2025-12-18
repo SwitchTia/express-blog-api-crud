@@ -1,4 +1,4 @@
-import { cityArray } from "..data.js"
+import { cityBlogArray } from "../data";
 
 function index(req, res) {
     const response = {
@@ -13,14 +13,14 @@ function index(req, res) {
 
 
 
-const controller = {
+const cityController = {
     index,
-    show,
-    store,
-    update,
-    modify,
-    destroy
+    // show,
+    // store,
+    // update,
+    // modify,
+    // destroy
 
 }
 
-export default controller
+export default cityController
