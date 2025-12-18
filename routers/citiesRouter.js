@@ -7,16 +7,18 @@ const router = express.Router();
 
 
 
-//INDEX
-router.get("/", (req, res) => {
-  const response = {
+INDEX
+router.get("/", )
+  //(req, res) => {
+//   const response = {
 
-    totalCitiesToVisit: cityBlogArray.length,
+//     totalCitiesToVisit: cityBlogArray.length,
 
-    listOfCities: cityBlogArray,
-  }
-  res.json(response)
-})
+//     listOfCities: cityBlogArray,
+//   }
+//   res.json(response)
+// }
+
 
 
 
