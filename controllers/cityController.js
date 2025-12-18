@@ -1,4 +1,4 @@
-import { cityBlogArray } from "../data";
+import { cityBlogArray } from "../data.js";
 
 
 //INDEX
@@ -76,19 +76,30 @@ function modify(req, res) {
         city.tags = updates.tags;
     }
 
-
     res.json(city);
 
 }
 
+function destroy (req, res){
+     const id = parseInt(req.params.id);
+    
+    
+      const cityIndex = cityBlogArray.findIndex(city => city.id === id);
+    
+      const deletedCity = cityBlogArray.splice(cityIndex, 1);
+    
+      res.json("CityBlog has been removed permanently");
+}
+
 const cityController = {
+    
     index,
     show,
     store,
     update,
     modify,
-    // destroy
+    destroy
 
 }
 
-export default cityController
+export default cityController;
