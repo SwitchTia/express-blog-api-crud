@@ -43,12 +43,23 @@ function store (req, res){
 }
 
 
+//UPDATE
+function update (req, res){
+
+   const id = parseInt(req.params.id);
+
+  //updated fields
+
+  res.send("Modify you blog");
+}
+
+
 
 const cityController = {
     index,
     show,
     store,
-    // update,
+    update,
     // modify,
     // destroy
 

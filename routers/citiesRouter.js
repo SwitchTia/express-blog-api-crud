@@ -20,15 +20,7 @@ router.post("/", cityController.store);
 
 
 // UPDATE
-router.put("/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-
-  //updated fields
-
-  res.json("Modify you blog");
-});
-
-
+router.put("/:id", cityController.update);
 
 
 //MODIFY
