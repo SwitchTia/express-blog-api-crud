@@ -18,39 +18,12 @@ router.get("/:id", cityController.show)
 router.post("/", cityController.store);
 
 
-
 // UPDATE
 router.put("/:id", cityController.update);
 
 
 //MODIFY
-router.patch("/:id", (req, res) => {
-
-  const id = parseInt(req.params.id);
-
-
-  const city = cityBlogArray.find(city => city.id === id);
-
-
-  const updates = req.body;
-
-  if (updates.title) {
-    city.title = updates.title;
-  }
-  if (updates.content) {
-    city.content = updates.content;
-  }
-  if (updates.image) {
-    city.image = updates.image;
-  }
-  if (updates.tags) {
-    city.tags = updates.tags;
-  }
-
-
-  res.json(city);
-
-});
+router.patch("/:id", cityController.modify);
 
 
 

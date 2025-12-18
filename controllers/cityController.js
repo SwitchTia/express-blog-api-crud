@@ -24,43 +24,69 @@ function show(req, res) {
 
 
 //STORE
-function store (req, res){
-   const newCity = req.body;
+function store(req, res) {
+    const newCity = req.body;
 
 
-  //creating a new blog object:
-  const newCityBlogToAdd = {
-    id: newId,
-    title: newCity.title,
-    content: newCity.content,
-    // image: newCity.image,?
-    tags: newCity.tags
-  }
+    //creating a new blog object:
+    const newCityBlogToAdd = {
+        id: newId,
+        title: newCity.title,
+        content: newCity.content,
+        // image: newCity.image,?
+        tags: newCity.tags
+    }
 
-  cityBlogArray.push(cityToAdd);
+    cityBlogArray.push(cityToAdd);
 
-  res.json(newCityBlogToAdd);
+    res.json(newCityBlogToAdd);
 }
 
 
 //UPDATE
-function update (req, res){
+function update(req, res) {
 
-   const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id);
 
-  //updated fields
+    //updated fields
 
-  res.send("Modify you blog");
+    res.send("Modify you blog");
 }
 
+//MODIFY
+function modify(req, res) {
+    const id = parseInt(req.params.id);
 
+
+    const city = cityBlogArray.find(city => city.id === id);
+
+
+    const updates = req.body;
+
+    if (updates.title) {
+        city.title = updates.title;
+    }
+    if (updates.content) {
+        city.content = updates.content;
+    }
+    if (updates.image) {
+        city.image = updates.image;
+    }
+    if (updates.tags) {
+        city.tags = updates.tags;
+    }
+
+
+    res.json(city);
+
+}
 
 const cityController = {
     index,
     show,
     store,
     update,
-    // modify,
+    modify,
     // destroy
 
 }
