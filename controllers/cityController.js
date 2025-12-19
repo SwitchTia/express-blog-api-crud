@@ -27,17 +27,18 @@ function show(req, res) {
 function store(req, res) {
     const newCity = req.body;
 
+     const newId = cityBlogArray[cityBlogArray.length - 1].id + 1;
 
     //creating a new blog object:
     const newCityBlogToAdd = {
         id: newId,
         title: newCity.title,
         content: newCity.content,
-        // image: newCity.image,?
+        image: newCity.image,
         tags: newCity.tags
     }
 
-    cityBlogArray.push(cityToAdd);
+    cityBlogArray.push(newCityBlogToAdd);
 
     res.json(newCityBlogToAdd);
 }
