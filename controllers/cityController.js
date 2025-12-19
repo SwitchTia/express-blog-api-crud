@@ -1,6 +1,7 @@
 import { cityBlogArray } from "../data.js";
 
 
+//Operations REST CRUD
 //INDEX
 function index(req, res) {
     const response = {
@@ -27,18 +28,22 @@ function show(req, res) {
 function store(req, res) {
     const newCity = req.body;
 
-     const newId = cityBlogArray[cityBlogArray.length - 1].id + 1;
+    const newId = cityBlogArray[cityBlogArray.length - 1].id + 1;
 
     //creating a new blog object:
     const newCityBlogToAdd = {
+
         id: newId,
         title: newCity.title,
         content: newCity.content,
         image: newCity.image,
         tags: newCity.tags
+
     }
 
     cityBlogArray.push(newCityBlogToAdd);
+
+    res.status(201);
 
     res.json(newCityBlogToAdd);
 }
@@ -49,12 +54,15 @@ function update(req, res) {
 
     const id = parseInt(req.params.id);
 
-    if (city === undefined){
+    const city = cityBlogArray.find(city => city.id === id);
+
+
+    if (city === undefined) {
         req.status(404)
         return res.json({
             Error: "Not found",
             Message: "Blog not found"
-           
+
         })
     }
     const updates = req.body;
@@ -75,39 +83,43 @@ function update(req, res) {
     res.json(city);
 }
 
+
 //MODIFY
 function modify(req, res) {
     const id = parseInt(req.params.id);
 
-
     const city = cityBlogArray.find(city => city.id === id);
 
-    if (city === undefined){
+    if (city === undefined) {
         req.status(404)
         return res.json({
             Error: "Not found",
             Message: "Blog not found"
-           
+
         })
     }
 
-    
+    //missing logic
 
 }
 
-function destroy (req, res){
-     const id = parseInt(req.params.id);
-    
-    
-      const cityIndex = cityBlogArray.findIndex(city => city.id === id);
-    
-      const deletedCity = cityBlogArray.splice(cityIndex, 1);
-    
-      res.json("CityBlog has been removed permanently");
+//DESTROY
+function destroy(req, res) {
+    const id = parseInt(req.params.id);
+
+
+    const cityIndex = cityBlogArray.findIndex(city => city.id === id);
+
+    const deletedCity = cityBlogArray.splice(cityIndex, 1);
+
+    res.json("CityBlog has been removed permanently");
 }
+
+
+
 
 const cityController = {
-    
+
     index,
     show,
     store,
