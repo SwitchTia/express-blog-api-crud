@@ -1,6 +1,7 @@
-console.log("hey");
+//console.log("hey");
 import express from "express"
 import citiesRouter from "./routers/citiesRouter.js"
+import tagsRouter from "./routers/tagsRouter.js"
 
 
 
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/cities", citiesRouter);
+app.use("/tags", tagsRouter);
 
 
 app.listen(port, function () {
