@@ -1,4 +1,5 @@
-import express from "express";
+import express from "express"
+import tagsController from "../controllers/tagsController";
 
 
 const router = express.Router();

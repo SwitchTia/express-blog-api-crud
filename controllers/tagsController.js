@@ -39,7 +39,7 @@ function destroy(req, res) {
 
 
 
-const cityController = {
+const tagsController = {
 
     // index,
     // show,
@@ -50,4 +50,4 @@ const cityController = {
 
 }
 
-export default cityController;
+export default tagsController;
