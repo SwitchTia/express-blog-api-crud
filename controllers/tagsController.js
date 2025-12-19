@@ -10,6 +10,7 @@ function index(req, res) {
 
 //SHOW
 function show(req, res) {
+    const tagName = req.params.tag;
     
 }
 
@@ -41,12 +42,12 @@ function destroy(req, res) {
 
 const tagsController = {
 
-    // index,
-    // show,
-    // store,
-    // update,
-    // modify,
-    // destroy
+    index,
+    show,
+    store,
+    update,
+    modify,
+    destroy
 
 }
 

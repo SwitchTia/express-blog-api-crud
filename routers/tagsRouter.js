@@ -1,5 +1,5 @@
 import express from "express"
-import tagsController from "../controllers/tagsController";
+import tagsController from "../controllers/tagsController.js";
 
 
 const router = express.Router();
@@ -11,7 +11,7 @@ router.get("/", tagsController.index)
 
 
 //SHOW
-router.get("/:id", tagsController.show)
+router.get("/:tag", tagsController.show)
 
 
 // STORE
