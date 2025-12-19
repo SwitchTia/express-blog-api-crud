@@ -49,19 +49,14 @@ function update(req, res) {
 
     const id = parseInt(req.params.id);
 
-    //updated fields
-
-    res.send("Modify you blog");
-}
-
-//MODIFY
-function modify(req, res) {
-    const id = parseInt(req.params.id);
-
-
-    const city = cityBlogArray.find(city => city.id === id);
-
-
+    if (city === undefined){
+        req.status(404)
+        return res.json({
+            Error: "Not found",
+            Message: "Blog not found"
+           
+        })
+    }
     const updates = req.body;
 
     if (updates.title) {
@@ -78,6 +73,25 @@ function modify(req, res) {
     }
 
     res.json(city);
+}
+
+//MODIFY
+function modify(req, res) {
+    const id = parseInt(req.params.id);
+
+
+    const city = cityBlogArray.find(city => city.id === id);
+
+    if (city === undefined){
+        req.status(404)
+        return res.json({
+            Error: "Not found",
+            Message: "Blog not found"
+           
+        })
+    }
+
+    
 
 }
 
