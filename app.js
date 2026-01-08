@@ -2,7 +2,9 @@
 import express from "express"
 import citiesRouter from "./routers/citiesRouter.js"
 import tagsRouter from "./routers/tagsRouter.js"
+
 import notFound from "./middlewares/notFound.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 
 
@@ -13,7 +15,6 @@ app.use(express.static("public"));
 
 app.use(express.json());
 
-app.use(notFound);
 
 
 app.get("/", (req, res) => {
@@ -24,6 +25,8 @@ app.use("/cities", citiesRouter);
 app.use("/tags", tagsRouter);
 
 
+app.use(errorHandler);
+app.use(notFound)
 
 
 app.listen(port, function (error) {
