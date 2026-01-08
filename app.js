@@ -17,7 +17,7 @@ app.use(notFound);
 
 
 app.get("/", (req, res) => {
-    res.send("Server of my blog")
+  res.send("Server of my blog")
 })
 
 app.use("/cities", citiesRouter);
@@ -26,7 +26,14 @@ app.use("/tags", tagsRouter);
 
 
 
-app.listen(port, function () {
-  console.log("Server is connected on port " + port);
+app.listen(port, function (error) {
+
+  if (error) {
+    console.log(error);
+  }
+  else {
+    console.log("Server is connected on port " + port);
+  }
+
 });
 
