@@ -1,17 +1,34 @@
-import { cityBlogArray } from "../data.js";
-
+import { cityBlogArray } from "../data/data.js";
+import connection from "../data/db.js";
 
 //Operations REST CRUD
 //INDEX
+
 function index(req, res) {
-    const response = {
+  const query = "SELECT * FROM `cities`";
 
-        totalCitiesToVisit: cityBlogArray.length,
-
-        listOfCities: cityBlogArray,
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(500);
+      return res.json({
+        message: "Internal server error",
+      });
     }
-    res.json(response)
-};
+
+    res.json({
+      results: result,
+    });
+  });
+}
+// function index(req, res) {
+//     const response = {
+
+//         totalCitiesToVisit: cityBlogArray.length,
+
+//         listOfCities: cityBlogArray,
+//     }
+//     res.json(response)
+// };
 
 
 //SHOW

@@ -1,4 +1,4 @@
-import { cityBlogArray } from "../data.js";
+import { cityBlogArray } from "../data/data.js";
 
 
 //Operations REST CRUD
